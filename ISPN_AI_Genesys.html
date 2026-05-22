@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ISPN AI Genesys | My Support</title>
+
+  <style>
+    :root {
+      --accent: #ff4b2f;
+      --text: #344054;
+      --muted: #98a2b3;
+      --border: #e4e7ec;
+      --bg: #f8f8f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: white;
+    }
+
+    header {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #eee;
+      background: white;
+    }
+
+    .nav {
+      width: 840px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .brand span {
+      border-left: 1px solid #cfd4dc;
+      padding-left: 14px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #667085;
+    }
+
+    .links a {
+      margin-left: 24px;
+      color: #667085;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      height: 210px;
+      position: relative;
+      background: linear-gradient(
+        105deg,
+        #e8404d 0%,
+        #c93683 48%,
+        #9c2ea2 100%
+      );
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 16px solid rgba(255,255,255,.08);
+      border-radius: 64px;
+    }
+
+    .hero::before {
+      width: 290px;
+      height: 120px;
+      left: 470px;
+      top: 34px;
+    }
+
+    .hero::after {
+      width: 500px;
+      height: 190px;
+      right: 265px;
+      top: 92px;
+    }
+
+    h1 {
+      margin-top: 58px;
+      color: white;
+      font-size: 30px;
+      line-height: 1.2;
+      z-index: 1;
+    }
+
+    main {
+      min-height: 356px;
+      background: #fbfbfb;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      width: 398px;
+      height: 350px;
+      background: white;
+      position: absolute;
+      top: -58px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(16, 24, 40, .28);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .tabs {
+      height: 55px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid #d0d5dd;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #8a94a6;
+      text-transform: uppercase;
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .tab.active {
+      color: var(--accent);
+    }
+
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    form {
+      padding: 42px 60px 0;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      height: 41px;
+      border: 1px solid #d0d5dd;
+      border-radius: 5px;
+      margin-bottom: 25px;
+      padding: 0 14px;
+      color: #667085;
+      outline: none;
+      font-size: 13px;
+    }
+
+    button {
+      width: 143px;
+      height: 39px;
+      border: 0;
+      border-radius: 20px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .forgot {
+      display: block;
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .support-strip {
+      height: 135px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      background: white;
+    }
+
+    .support-inner {
+      width: 610px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .support-box h3 {
+      margin: 0 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #667085;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .support-box p {
+      margin: 0;
+      font-size: 14px;
+      color: #98a2b3;
+    }
+
+    .pill {
+      float: right;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 3px 13px;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    footer {
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      color: #8a94a6;
+    }
+
+    .footer-inner {
+      width: 840px;
+    }
+
+    .footer-links {
+      margin-bottom: 13px;
+      color: #667085;
+      font-weight: 600;
+    }
+
+    @media (max-width: 760px) {
+      .nav,
+      .footer-inner {
+        width: calc(100% - 32px);
+      }
+
+      .links {
+        display: none;
+      }
+
+      .card {
+        width: calc(100% - 48px);
+      }
+
+      form {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .support-inner {
+        width: calc(100% - 40px);
+        grid-template-columns: 1fr;
+      }
+
+      .support-strip {
+        height: auto;
+        padding: 32px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+
+      <div class="brand">
+        ISPN AI Genesys
+        <span>My Support</span>
+      </div>
+
+      <nav class="links">
+        <a href="#">Log In</a>
+        <a href="#">Get Started</a>
+        <a href="#">FAQ</a>
+        <a href="#">Documentation</a>
+        <a href="#">Contact Us</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Our Product Support Communications Portal</h1>
+  </section>
+
+  <main>
+
+    <section class="card" aria-label="Login panel">
+
+      <div class="tabs">
+        <div class="tab active">Log In</div>
+        <div class="tab">Get Started</div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Connect this form to your own auth provider or backend.');">
+
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          autocomplete="username"
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          autocomplete="current-password"
+        />
+
+        <button type="submit">Login</button>
+
+        <a class="forgot" href="#">
+          Forgot Password?
+        </a>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <section class="support-strip">
+
+    <div class="support-inner">
+
+      <div class="support-box">
+        <h3>☎ Urgent Issue?</h3>
+
+        <p>
+          Speak with Product Support
+          <a class="pill" href="#">Contact Us</a>
+        </p>
+      </div>
+
+      <div class="support-box">
+        <h3>✓ Have Questions?</h3>
+
+        <p>
+          Visit ISPN AI Genesys Knowledge Network
+          <a class="pill" href="#">View Now</a>
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-links">
+        About ISPN AI Genesys |
+        ISPN AI Genesys Services |
+        Privacy Policy |
+        Terms and Conditions |
+        Partner Portal
+      </div>
+
+      <div>
+        Copyright © 2026 ISPN AI Genesys.
+        All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
