@@ -326,29 +326,46 @@
         <div class="tab">Get Started</div>
       </div>
 
-      <form onsubmit="event.preventDefault(); alert('Connect this form to your own auth provider or backend.');">
+<form id="trainingForm">
 
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          autocomplete="username"
-        />
+  <input
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Username"
+    autocomplete="username"
+    required
+  />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          autocomplete="current-password"
-        />
+  <input
+    type="password"
+    placeholder="Password"
+    autocomplete="off"
+  />
 
-        <button type="submit">Login</button>
+  <button type="submit">Login</button>
 
-        <a class="forgot" href="#">
-          Forgot Password?
-        </a>
+  <a class="forgot" href="#">
+    Forgot Password?
+  </a>
 
-      </form>
+</form>
+
+<script>
+document.getElementById('trainingForm').addEventListener('submit', async function(e) {
+
+  e.preventDefault();
+
+  const username =
+    document.getElementById('username').value;
+
+  console.log("Username submitted:", username);
+
+  window.location.href =
+    'https://example.com/security-awareness';
+
+});
+</script>
 
     </section>
 
